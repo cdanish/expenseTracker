@@ -15,13 +15,16 @@ function Statics() {
     let totalIncome = 0;
     let totalExpense = 0;
 
-    transactions.forEach((transaction) => {
-        if (transaction.type == "income") {
-            totalIncome = totalIncome + transaction.amount;
-        } else {
-            totalExpense = totalExpense + transaction.amount;
-        }
-    });
+    if(transactions){
+        transactions.forEach((transaction) => {
+            if (transaction.type == "income") {
+                totalIncome = totalIncome + transaction.amount;
+            } else {
+                totalExpense = totalExpense + transaction.amount;
+            }
+        });
+    }
+    
 
     let totalBalance = totalIncome - totalExpense;
 

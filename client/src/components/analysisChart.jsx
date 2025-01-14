@@ -11,14 +11,16 @@ function AnalysisChart() {
   const incomeCategories = {};
   const expenseCategories = {};
 
-  transactions.forEach((transaction) => {
-    const { type, category, amount } = transaction;
-    if (type === 'income') {
-      incomeCategories[category] = (incomeCategories[category] || 0) + amount;
-    } else if (type === 'expense') {
-      expenseCategories[category] = (expenseCategories[category] || 0) + amount;
-    }
-  });
+  if(transactions){
+    transactions.forEach((transaction) => {
+      const { type, category, amount } = transaction;
+      if (type === 'income') {
+        incomeCategories[category] = (incomeCategories[category] || 0) + amount;
+      } else if (type === 'expense') {
+        expenseCategories[category] = (expenseCategories[category] || 0) + amount;
+      }
+    });
+  }
 
   // Convert to array with percentages
   const totalIncome = Object.values(incomeCategories).reduce((sum, val) => sum + val, 0);
