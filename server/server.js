@@ -33,12 +33,13 @@ app.use("/api",AuthMiddleWare,transRouter);
 
 const port = process.env.PORT;
 
-app.listen(port,()=>{
+// app.listen(port,()=>{
 
-    console.log(`server running on port ${port}`)
+//     console.log(`server running on port ${port}`)
 
-})
+// })
 
+export default app;
 
 
 
